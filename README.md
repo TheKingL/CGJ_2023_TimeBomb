@@ -1,1 +1,1 @@
-# CGJ_2023_TimeBomb
+# CGJ-TimeBomb
