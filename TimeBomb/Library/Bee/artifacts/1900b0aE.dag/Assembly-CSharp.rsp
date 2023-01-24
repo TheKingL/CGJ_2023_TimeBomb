@@ -374,6 +374,7 @@
 "Assets/Scripts/CountDown.cs"
 "Assets/Scripts/EndMenu.cs"
 "Assets/Scripts/Game.cs"
+"Assets/Scripts/GoToScene.cs"
 "Assets/Scripts/HideShowObject.cs"
 "Assets/Scripts/ItemCollector.cs"
 "Assets/Scripts/JumpPad.cs"
@@ -384,9 +385,9 @@
 "Assets/Scripts/PlayerAttack.cs"
 "Assets/Scripts/PlayerLife.cs"
 "Assets/Scripts/PlayerMovement.cs"
+"Assets/Scripts/SelectMap.cs"
 "Assets/Scripts/SettingsMenu.cs"
 "Assets/Scripts/Spawnpoint.cs"
-"Assets/Scripts/StartMenu.cs"
 "Assets/Scripts/StickyPlatform.cs"
 "Assets/Scripts/WaypointFollower.cs"
 -langversion:9.0

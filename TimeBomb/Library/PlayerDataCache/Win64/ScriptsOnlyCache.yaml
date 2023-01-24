@@ -4,6 +4,8 @@ ScriptsOnlyBuild:
     - CountDown
     - EndMenu
     - Game
+    - GoToScene
+    - HideShowObject
     - ItemCollector
     - JumpPad
     - Player2Attack1
@@ -12,8 +14,9 @@ ScriptsOnlyBuild:
     - PlayerAttack
     - PlayerLife
     - PlayerMovement
+    - SelectMap
+    - SettingsMenu
     - Spawnpoint
-    - StartMenu
     - StickyPlatform
     - WaypointFollower
     Unity.2D.Animation.Editor.dll:
@@ -22,6 +25,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.IK.IKEditorManager
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
+    - UnityEditor.Tilemaps.GridBrushEditor
     - UnityEditor.Tilemaps.GridPaintPaletteClipboard
     - UnityEditor.Tilemaps.GridPaintPaletteWindow
     - UnityEditor.Tilemaps.GridPaintingState
@@ -57,9 +61,15 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.Dropdown
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Mask
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
+    - UnityEngine.UI.Toggle
   serializedClasses:
     UnityEngine.CoreModule:
     - UnityEngine.Events.ArgumentCache
@@ -69,17 +79,48 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.AnimationTriggers
     - UnityEngine.UI.Button/ButtonClickedEvent
     - UnityEngine.UI.ColorBlock
+    - UnityEngine.UI.Dropdown/DropdownEvent
+    - UnityEngine.UI.Dropdown/OptionData
+    - UnityEngine.UI.Dropdown/OptionDataList
     - UnityEngine.UI.FontData
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
     - UnityEngine.UI.Navigation
+    - UnityEngine.UI.ScrollRect/ScrollRectEvent
+    - UnityEngine.UI.Scrollbar/ScrollEvent
+    - UnityEngine.UI.Slider/SliderEvent
     - UnityEngine.UI.SpriteState
+    - UnityEngine.UI.Toggle/ToggleEvent
   methodsToPreserve:
   - assembly: Assembly-CSharp
-    fullTypeName: StartMenu
-    methodName: StartGame
+    fullTypeName: GoToScene
+    methodName: LoadScene
   - assembly: Assembly-CSharp
     fullTypeName: EndMenu
     methodName: QuitGame
+  - assembly: Assembly-CSharp
+    fullTypeName: GoToScene
+    methodName: LoadScene
+  - assembly: Assembly-CSharp
+    fullTypeName: SelectMap
+    methodName: BackgroundChangerBackward
+  - assembly: Assembly-CSharp
+    fullTypeName: SelectMap
+    methodName: BackgroundChangerForward
+  - assembly: Assembly-CSharp
+    fullTypeName: SettingsMenu
+    methodName: SetResolution
+  - assembly: Assembly-CSharp
+    fullTypeName: SettingsMenu
+    methodName: SetVolume
+  - assembly: Assembly-CSharp
+    fullTypeName: SettingsMenu
+    methodName: SetVolume
+  - assembly: Assembly-CSharp
+    fullTypeName: SettingsMenu
+    methodName: SetFullscreen
+  - assembly: Assembly-CSharp
+    fullTypeName: GoToScene
+    methodName: LoadScene
   sceneClasses:
     Assets/Scenes/End Screen.unity:
     - Class: 1
@@ -99,24 +140,73 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1592}
+      Script: {instanceID: 1598}
     - Class: 114
-      Script: {instanceID: 2814}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 3074}
+      Script: {instanceID: 3080}
     - Class: 114
-      Script: {instanceID: 3430}
+      Script: {instanceID: 3436}
     - Class: 114
-      Script: {instanceID: 6296}
+      Script: {instanceID: 6306}
     - Class: 114
-      Script: {instanceID: 6690}
+      Script: {instanceID: 6700}
     - Class: 114
-      Script: {instanceID: 7310}
+      Script: {instanceID: 7320}
     - Class: 114
-      Script: {instanceID: 7840}
+      Script: {instanceID: 7852}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Launch Screen.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1598}
+    - Class: 114
+      Script: {instanceID: 2820}
+    - Class: 114
+      Script: {instanceID: 3080}
+    - Class: 114
+      Script: {instanceID: 6700}
+    - Class: 114
+      Script: {instanceID: 7320}
+    - Class: 114
+      Script: {instanceID: 50190}
+    - Class: 115
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -166,43 +256,47 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 654}
+      Script: {instanceID: 658}
     - Class: 114
-      Script: {instanceID: 2208}
+      Script: {instanceID: 1586}
     - Class: 114
-      Script: {instanceID: 2814}
+      Script: {instanceID: 1598}
     - Class: 114
-      Script: {instanceID: 3074}
+      Script: {instanceID: 2214}
     - Class: 114
-      Script: {instanceID: 4566}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 4868}
+      Script: {instanceID: 3080}
     - Class: 114
-      Script: {instanceID: 5314}
+      Script: {instanceID: 4572}
     - Class: 114
-      Script: {instanceID: 6296}
+      Script: {instanceID: 4874}
     - Class: 114
-      Script: {instanceID: 6690}
+      Script: {instanceID: 4944}
     - Class: 114
-      Script: {instanceID: 7310}
+      Script: {instanceID: 5322}
     - Class: 114
-      Script: {instanceID: 8446}
+      Script: {instanceID: 6212}
     - Class: 114
-      Script: {instanceID: 8896}
+      Script: {instanceID: 6306}
     - Class: 114
-      Script: {instanceID: 37396}
+      Script: {instanceID: 6700}
     - Class: 114
-      Script: {instanceID: 43284}
+      Script: {instanceID: 7320}
     - Class: 114
-      Script: {instanceID: 84926}
+      Script: {instanceID: 7820}
     - Class: 114
-      Script: {instanceID: 87832}
+      Script: {instanceID: 7960}
     - Class: 114
-      Script: {instanceID: 102420}
+      Script: {instanceID: 8462}
     - Class: 114
-      Script: {instanceID: 106584}
+      Script: {instanceID: 8536}
     - Class: 114
-      Script: {instanceID: 119184}
+      Script: {instanceID: 8776}
+    - Class: 114
+      Script: {instanceID: 8916}
+    - Class: 114
+      Script: {instanceID: 9060}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -235,6 +329,69 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 1839735485
       Script: {instanceID: 0}
+    Assets/Scenes/Options Screen.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1598}
+    - Class: 114
+      Script: {instanceID: 2820}
+    - Class: 114
+      Script: {instanceID: 3080}
+    - Class: 114
+      Script: {instanceID: 3436}
+    - Class: 114
+      Script: {instanceID: 4406}
+    - Class: 114
+      Script: {instanceID: 5790}
+    - Class: 114
+      Script: {instanceID: 5856}
+    - Class: 114
+      Script: {instanceID: 6306}
+    - Class: 114
+      Script: {instanceID: 6700}
+    - Class: 114
+      Script: {instanceID: 7320}
+    - Class: 114
+      Script: {instanceID: 7332}
+    - Class: 114
+      Script: {instanceID: 8310}
+    - Class: 114
+      Script: {instanceID: 8638}
+    - Class: 114
+      Script: {instanceID: 8682}
+    - Class: 114
+      Script: {instanceID: 50190}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
     Assets/Scenes/Start Screen.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -253,30 +410,30 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1592}
+      Script: {instanceID: 1598}
     - Class: 114
-      Script: {instanceID: 2814}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 3074}
+      Script: {instanceID: 3080}
     - Class: 114
-      Script: {instanceID: 3430}
+      Script: {instanceID: 3436}
     - Class: 114
-      Script: {instanceID: 6296}
+      Script: {instanceID: 6700}
     - Class: 114
-      Script: {instanceID: 6690}
+      Script: {instanceID: 7320}
     - Class: 114
-      Script: {instanceID: 6986}
+      Script: {instanceID: 7852}
     - Class: 114
-      Script: {instanceID: 7310}
+      Script: {instanceID: 50190}
     - Class: 114
-      Script: {instanceID: 7840}
+      Script: {instanceID: 102730}
     - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -293,6 +450,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UIElements
     className: PanelRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 06ea09f3e6ad159923e410e89c58528c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HideShowObject
   - hash:
       serializedVersion: 2
       Hash: a6e561615949734e9f12f9b61661f43e
@@ -745,6 +908,12 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
+      Hash: cb0dc86b75de10f28bfa33a216841f43
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CountDown
+  - hash:
+      serializedVersion: 2
       Hash: 75de60bccbd35c2e82026d4a60733734
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -889,6 +1058,12 @@ ScriptsOnlyBuild:
     className: PanelEventHandler
   - hash:
       serializedVersion: 2
+      Hash: 1ccc9d2fb672586830507ed7cca34785
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Spawnpoint
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -941,12 +1116,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: StartMenu
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1021,6 +1190,12 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
+      Hash: be4bcfb3540a4f01868cbc74a7837a63
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Player2Movement
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -1049,6 +1224,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnCollisionExitMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 1da656e3bf0323afee122d23597b511c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Player2Attack1
   - hash:
       serializedVersion: 2
       Hash: fc29f975ab35a5033d05bcfda3c82435
@@ -1129,6 +1310,12 @@ ScriptsOnlyBuild:
     className: SpriteShape
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Player2Attack
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1141,13 +1328,19 @@ ScriptsOnlyBuild:
     className: WaypointFollower
   - hash:
       serializedVersion: 2
+      Hash: a1a4e91f8aa387c7a159ef47dc216da9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Player2Life
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnMoveMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 8b21061e9d037d307e029130da878344
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SettingsMenu
@@ -1171,7 +1364,13 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: e3fb4b5a07c74c759eb6fe5b2f56e8ff
+      Hash: e344f32c3a09c9e2a658cd8bd29ec345
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerAttack
+  - hash:
+      serializedVersion: 2
+      Hash: b38e4656cb540e3d30555394fceeffd9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerLife
@@ -1205,6 +1404,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: Variables
+  - hash:
+      serializedVersion: 2
+      Hash: 86ca5c3d6c945c6de77ea4155938f305
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Game
   - hash:
       serializedVersion: 2
       Hash: 2574ac7d50617d23cdefe4ad22f5e1ad
@@ -1267,55 +1472,21 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: be4bcfb3540a4f01868cbc74a7837a63
+      Hash: d2e75f84d1c658c1855f1a5f4a73d5cc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Player2Movement
+    className: GoToScene
   - hash:
       serializedVersion: 2
-      Hash: a320d1aa6c33cc62cb4696a3de339343
+      Hash: 2bf65cf3921e5efbe8dbd9416b053a7c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Player2Life
-  - hash:
-      serializedVersion: 2
-      Hash: cb0dc86b75de10f28bfa33a216841f43
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CountDown
-  - hash:
-      serializedVersion: 2
-      Hash: 86ca5c3d6c945c6de77ea4155938f305
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Game
-  - hash:
-      serializedVersion: 2
-      Hash: 1ccc9d2fb672586830507ed7cca34785
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Spawnpoint
-  - hash:
-      serializedVersion: 2
-      Hash: e344f32c3a09c9e2a658cd8bd29ec345
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayerAttack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Player2Attack
-  - hash:
-      serializedVersion: 2
-      Hash: 1da656e3bf0323afee122d23597b511c
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Player2Attack1
+    className: SelectMap
   platform: 19
   scenePathNames:
+  - Assets/Scenes/Launch Screen.unity
   - Assets/Scenes/Start Screen.unity
   - Assets/Scenes/Level 1.unity
   - Assets/Scenes/End Screen.unity
-  playerPath: C:/Users/julye/TimeBomb/Builds/Windows/x86/TimeBomb.exe
+  - Assets/Scenes/Options Screen.unity
+  playerPath: D:/Mes Documents/GitHub/CGJ_2023_TimeBomb/TimeBomb.exe
