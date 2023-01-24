@@ -74,3 +74,5 @@ TimeBomb/Library/SourceAssetDB
 TimeBomb/Logs/AssetImportWorker0-prev.log
 TimeBomb/Logs/AssetImportWorker1-prev.log
 TimeBomb/UserSettings/Layouts/default-2021.dwlt
+TimeBomb/Temp/
+TimeBomb/Logs/
